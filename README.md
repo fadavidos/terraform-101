@@ -1,6 +1,6 @@
 # terraform-101
 
-###Prerequisitos:
+### Prerequisitos:
 - Instalar [Terraform](https://www.terraform.io/downloads.html)
 - Crear una cuenta en [AWS](https://aws.amazon.com/)
 
