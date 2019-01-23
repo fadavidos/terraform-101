@@ -18,13 +18,22 @@
 
 
 ## Descripción
+
+
 Este proyecto básico es capaz de crea un [EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) con un [EIP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html).
 
-En la instancia instala apache2 y hace un "Hola mundo" en la página index.html. 
+En la instancia de EC2 instala apache2 y hace un "Hola mundo" en la página index.html.
+
+Los valores de las instancias están almacenadas en el archivo de variables `variables.tfvars`.
+
+- Para ejecutar el plan se debe usar el comando: `TF_LOG=TRACE TF_LOG_PATH=./terraform.log terraform plan -var-file=variables.tfvars`
+- Para aplicar el script en AWS se debe usar el comando: `TF_LOG=TRACE TF_LOG_PATH=./terraform.log terraform apply -var-file=variables.tfvars`
 
 
 ## A tener en cuenta
 La `ami` usada esta vacía y esta disponible para la región us-east-2.
+
+`TF_LOG=TRACE TF_LOG_PATH=./terraform.log` permite activar la salida de log y guardarlo en un archivo .log.
 
 Debe reemplazar los atributos 
 - `key_name` 
