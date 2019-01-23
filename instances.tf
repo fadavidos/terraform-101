@@ -2,8 +2,6 @@
 # t2.micro node with an AWS Tag naming it "HelloWorld"
 provider "aws" {
   region = "us-east-2"
-  access_key = "AKIAIBH2CF52PJYC4BIQ"
-  secret_key = "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"
 }
 
 resource "aws_instance" "web" {
