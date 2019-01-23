@@ -18,9 +18,34 @@
 
 
 ## Descripción
-Este proyecto básico es capaz de crea un [EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) con un [EIP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
+
+
+Este proyecto básico es capaz de crea un [EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) con un [EIP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html).
+
+En la instancia de EC2 instala apache2 y hace un "Hola mundo" en la página index.html.
+
+Los valores de las instancias están almacenadas en el archivo de variables `variables.tfvars`.
+
+- Para ejecutar el plan se debe usar el comando: `TF_LOG=TRACE TF_LOG_PATH=./terraform.log terraform plan -var-file=variables.tfvars`
+- Para aplicar el script en AWS se debe usar el comando: `TF_LOG=TRACE TF_LOG_PATH=./terraform.log terraform apply -var-file=variables.tfvars`
 
 
 ## A tener en cuenta
-Debe reemplazar los atributos `ami` y el `key_name` en el archivo `./instances.tf`, ya que ambas pertenecen a mi cuenta de AWS. 
+La `ami` usada esta vacía y esta disponible para la región us-east-2.
 
+`TF_LOG=TRACE TF_LOG_PATH=./terraform.log` permite activar la salida de log y guardarlo en un archivo .log.
+
+Debe reemplazar los atributos 
+- `key_name` 
+
+En el archivo `./instances.tf`, ya que pertenecen a mi cuenta de AWS. 
+
+## Script
+- `sudo apt-get update`
+- `sudo apt-get install apache2`
+- `cd /var/www/html`
+- `sudo rm index.html `
+- `cd ..`
+- `sudo chmod 777 html/`
+- `cd html`
+- `echo "Hola mundo desde EC2" >> index.html`
